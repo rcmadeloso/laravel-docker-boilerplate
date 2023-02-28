@@ -48,7 +48,7 @@ Before you run and compile your assests, you first need to add ` --host` (idea i
 
 If you want to make your code changes be compiled in real time you may also need to modify the `vite.config.js` file  and add the following lines of code:
 
-```json
+```javascript
     server: {
         hmr: {
             host: 'localhost',
