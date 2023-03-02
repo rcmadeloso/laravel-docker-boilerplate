@@ -92,6 +92,30 @@ This boilerplate also has mailhog included. You can use mailhog to test emails a
 You can access mailhog at [localhost:8025](http://localhost:8025) after running `docker-compose up -d site`.
 
 
+## Issues
+If docker is having trouble pulling packages from sources online, add dns [8.8.8.8] to your configuration in your `daemon.json` file. 
+
+```json
+{
+  "builder": {
+    "gc": {
+      "defaultKeepStorage": "20GB",
+      "enabled": true
+    }
+  },
+  "dns": [
+    "8.8.8.8"
+  ],
+  "experimental": false,
+  "features": {
+    "buildkit": true
+  }
+}
+```
+
+You can check where to locate this file, here: https://docs.docker.com/config/daemon/
+
+
 ## Something to note (Building with Laravel 9 + Vite)
 
 Might be an isolated one, however I noticed that for my Laravel Applications running Laravel 9 onwards with vite as the assets compiler, loading or reloading pages take so much time. For these applications I chose to run it on Vagrant Homestead instead. However, creating a Docker Container for these applications are still helpful espicially when it comes to setting up a production/live version.
